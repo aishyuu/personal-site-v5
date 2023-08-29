@@ -1,0 +1,21 @@
+<div class="bg-white p-3 rounded-xl mb-8 lg:flex lg:w-5/6 lg:mx-auto xl:w-3/4">
+  <img class="max-h-80 mx-auto rounded-xl" src={{project.img}} />
+  <div>
+    <div class="text-center p-8">
+      <h1 class="font-bold">{{project.name}}</h1>
+      <p class="mt-4 font-semibold text-gray-500">{{project.desc}}</p>
+    </div>
+    <div class="flex gap-4 flex-wrap justify-center" >
+      <div *ngFor="let tech of project.stack"
+        class="shadow-lg p-3 font-semibold"
+      >
+        <p>{{tech}}</p>
+      </div>
+    </div>
+    <div class="flex gap-6 justify-center mt-8 font-semibold mb-4">
+      <p *ngIf="!project.github" class="text-gray-400">Closed Source</p>
+      <a *ngIf="project.github" href={{project.github}} target="_blank" class="hover:text-blue-500">Source Code <fa-icon [icon]="faGithub"></fa-icon></a>
+      <a href={{project.demo}} target="_blank" class="hover:text-blue-500">Live Demo <fa-icon [icon]="faLink"></fa-icon></a>
+    </div>
+  </div>
+</div>
